@@ -6,10 +6,8 @@ Install all spikedev files to a 'spikedev' directory on SPIKE
 
 # standard libraries
 import argparse
-import grp
 import logging
 import os
-import pwd
 import subprocess
 import sys
 from typing import List
@@ -44,9 +42,7 @@ def spike_install_spikedev(dev: str) -> bool:
     """
 
     # ampy requires root perms
-    if os.geteuid() != 0:
-        log.error("You must run this program using 'sudo'")
-        return False
+
 
     if not os.path.exists(dev):
         log.error(f"device '{dev}' is not connected")
